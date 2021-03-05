@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
 // @namespace    http://tampermonkey.net/
-// @version      0.1.0
+// @version      0.1.1
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @author       murphyne
 // @match        https://answers.unity.com/*
@@ -22,12 +22,20 @@
   var filledNodes = textNodes.filter(node => node.textContent.trim() !== "");
 
   aNodes.forEach(function (node) {
-    node.href = node.href.replaceAll(stringToRemove, stringToInsert);
+    if (checkAnonymous(node.href)) {
+      node.href = node.href.replaceAll(stringToRemove, stringToInsert);
+    }
   });
 
   filledNodes.forEach(function (node) {
-    node.textContent = node.textContent.replaceAll(stringToRemove, stringToInsert);
+    if (checkAnonymous(node.textContent)) {
+      node.textContent = node.textContent.replaceAll(stringToRemove, stringToInsert);
+    }
   });
+
+  function checkAnonymous (str) {
+    return str.includes("$$anonymous$$");
+  }
 
   function traverseNodeTree (root) {
     if (root.childNodes.length > 0) {
