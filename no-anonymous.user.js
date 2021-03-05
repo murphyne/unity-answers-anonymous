@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @author       murphyne
 // @match        https://answers.unity.com/*
@@ -11,8 +11,17 @@
 ;(function eliminateAnonymous () {
   'use strict';
 
-  var stringToRemove = "$$anonymous$$";
-  var stringToInsert = "M";
+  var replacements = [
+    [ "WOR$$anonymous$$ING", "WORKING" ],
+    [ /[W|w]or\$\$anonymous\$\$ing/g, "$1orking" ],
+    [ "INS$$anonymous$$D", "INSTEAD" ],
+    [ /[I|i]ns\$\$anonymous\$\$d/g, "$1nstead" ],
+    [ "$$anonymous$$m", "team" ],
+    [ "$$anonymous$$ey", "Key" ],
+    [ "ND$$anonymous$$", "NDK" ],
+    [ "I$$anonymous$$", "IK" ],
+    [ "$$anonymous$$", "M" ],
+  ];
 
   var nodes = traverseNodeTree(document.body).flat(Infinity);
 
@@ -23,13 +32,17 @@
 
   aNodes.forEach(function (node) {
     if (checkAnonymous(node.href)) {
-      node.href = node.href.replaceAll(stringToRemove, stringToInsert);
+      for (let replacement of replacements) {
+        node.href = node.href.replaceAll(replacement[0], replacement[1]);
+      }
     }
   });
 
   filledNodes.forEach(function (node) {
     if (checkAnonymous(node.textContent)) {
-      node.textContent = node.textContent.replaceAll(stringToRemove, stringToInsert);
+      for (let replacement of replacements) {
+        node.textContent = node.textContent.replaceAll(replacement[0], replacement[1]);
+      }
     }
   });
 
