@@ -25,22 +25,21 @@
 
   var nodes = traverseNodeTree(document.body).flat(Infinity);
 
-  var aNodes = nodes.filter(node => node.nodeName === "A");
-
-  var textNodes = nodes.filter(node => node.nodeType === Node.TEXT_NODE);
-  var filledNodes = textNodes.filter(node => node.textContent.trim() !== "");
-
-  aNodes.forEach(function (node) {
-    if (checkAnonymous(node.href)) {
-      node.href = replaceAnonymous(node.href);
+  for (let node of nodes) {
+    if (node.nodeName === "A") {
+      if (checkAnonymous(node.href)) {
+        node.href = replaceAnonymous(node.href);
+      }
     }
-  });
 
-  filledNodes.forEach(function (node) {
-    if (checkAnonymous(node.textContent)) {
-      node.textContent = replaceAnonymous(node.textContent);
+    if (node.nodeType === Node.TEXT_NODE) {
+      if (node.textContent.trim() !== "") {
+        if (checkAnonymous(node.textContent)) {
+          node.textContent = replaceAnonymous(node.textContent);
+        }
+      }
     }
-  });
+  }
 
   function checkAnonymous (str) {
     return str.includes("$$anonymous$$");
