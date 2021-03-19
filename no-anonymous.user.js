@@ -1,15 +1,31 @@
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
 // @namespace    http://tampermonkey.net/
-// @version      0.2.0
+// @version      0.3.0
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @author       murphyne
 // @match        https://answers.unity.com/*
-// @grant        none
+// @grant        GM_addStyle
 // ==/UserScript==
 
 ;(function eliminateAnonymous () {
   'use strict';
+
+  GM_addStyle(`
+    span.anonymous {
+      -moz-text-decoration-line: underline;
+      -moz-text-decoration-style: dotted;
+      -moz-text-decoration-color: brown;
+      -webkit-text-decoration-line: underline;
+      -webkit-text-decoration-style: dotted;
+      -webkit-text-decoration-color: brown;
+      text-decoration-line: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: brown;
+      text-decoration-thickness: 1px;
+      text-decoration-skip-ink: none;
+    }
+  `);
 
   var replacements = [
     [ /(WOR\$\$anonymous\$\$ING)/g, "WORKING" ],
@@ -70,6 +86,7 @@
   function createNode (token) {
     if (token.isAnonymous) {
       let span = document.createElement("span");
+      span.classList.add("anonymous");
       span.textContent = token.after;
       span.title = `${token.before} → ${token.after}`;
       return span;
