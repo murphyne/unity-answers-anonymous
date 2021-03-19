@@ -32,22 +32,25 @@
 
   aNodes.forEach(function (node) {
     if (checkAnonymous(node.href)) {
-      for (let replacement of replacements) {
-        node.href = node.href.replaceAll(replacement[0], replacement[1]);
-      }
+      node.href = replaceAnonymous(node.href);
     }
   });
 
   filledNodes.forEach(function (node) {
     if (checkAnonymous(node.textContent)) {
-      for (let replacement of replacements) {
-        node.textContent = node.textContent.replaceAll(replacement[0], replacement[1]);
-      }
+      node.textContent = replaceAnonymous(node.textContent);
     }
   });
 
   function checkAnonymous (str) {
     return str.includes("$$anonymous$$");
+  }
+
+  function replaceAnonymous (str) {
+    for (let replacement of replacements) {
+      str = str.replaceAll(replacement[0], replacement[1]);
+    }
+    return str;
   }
 
   function traverseNodeTree (root) {
