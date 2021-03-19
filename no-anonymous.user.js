@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
 // @namespace    http://tampermonkey.net/
-// @version      0.3.0
+// @version      0.3.1
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @author       murphyne
 // @match        https://answers.unity.com/*
@@ -28,16 +28,38 @@
   `);
 
   var replacements = [
+    [ /(\$\$anonymous\$\$onoBehaviour)/g, "MonoBehaviour" ],
+    [ /(Get\$\$anonymous\$\$eyDown)/g, "GetKeyDown" ],
+    [ /(any\$\$anonymous\$\$eyDown)/g, "anyKeyDown" ],
+    [ /(\$\$anonymous\$\$aterial)/g, "Material" ],
+    [ /(\$\$anonymous\$\$eyCode)/g, "KeyCode" ],
+    [ /(is\$\$anonymous\$\$ey)/g, "isKey" ],
     [ /(WOR\$\$anonymous\$\$ING)/g, "WORKING" ],
     [ /(Wor\$\$anonymous\$\$ing)/g, "Working" ],
     [ /(wor\$\$anonymous\$\$ing)/g, "working" ],
+    [ /(EXA\$\$anonymous\$\$PLE)/g, "EXAMPLE" ],
+    [ /(\$\$anonymous\$\$essage)/g, "Message" ],
+    [ /(\$\$anonymous\$\$anager)/g, "Manager" ],
+    [ /(THAN\$\$anonymous\$\$S)/g, "THANKS" ],
     [ /(INS\$\$anonymous\$\$D)/g, "INSTEAD" ],
     [ /(Ins\$\$anonymous\$\$d)/g, "Instead" ],
     [ /(ins\$\$anonymous\$\$d)/g, "instead" ],
+    [ /(\$\$anonymous\$\$cher)/g, "teacher" ],
+    [ /(\$\$anonymous\$\$ouse)/g, "Mouse" ],
+    [ /(\$\$anonymous\$\$athf)/g, "Mathf" ],
+    [ /(\$\$anonymous\$\$ath)/g, "Math" ],
+    [ /(\$\$anonymous\$\$esh)/g, "Mesh" ],
+    [ /(\$\$anonymous\$\$ove)/g, "Move" ],
+    [ /(\$\$anonymous\$\$ode)/g, "Mode" ],
+    [ /(\$\$anonymous\$\$in)/g, "Min" ],
+    [ /(\$\$anonymous\$\$ax)/g, "Max" ],
     [ /(\$\$anonymous\$\$m)/g, "team" ],
     [ /(\$\$anonymous\$\$ey)/g, "Key" ],
     [ /(ND\$\$anonymous\$\$)/g, "NDK" ],
+    [ /(AR\$\$anonymous\$\$)/g, "ARM" ],
+    [ /(AP\$\$anonymous\$\$)/g, "APK" ],
     [ /(I\$\$anonymous\$\$)/g, "IK" ],
+    [ /(\$\$anonymous\$\$y)/g, "My" ],
     [ /(\$\$anonymous\$\$)/g, "M" ],
   ];
 
