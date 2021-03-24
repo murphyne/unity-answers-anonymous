@@ -64,25 +64,28 @@
   ];
 
   var nodes = traverseNodeTree(document.body).flat(Infinity);
+  processNodes(nodes);
 
-  for (let node of nodes) {
-    if (node.nodeName === "A") {
-      if (checkAnonymous(node.href)) {
-        node.href = replaceAnonymous(node.href);
+  function processNodes (nodes) {
+    for (let node of nodes) {
+      if (node.nodeName === "A") {
+        if (checkAnonymous(node.href)) {
+          node.href = replaceAnonymous(node.href);
+        }
       }
-    }
 
-    if (node.nodeType === Node.TEXT_NODE) {
-      if (node.textContent.trim() !== "") {
-        if (checkAnonymous(node.textContent)) {
-          let fragment = new DocumentFragment();
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (node.textContent.trim() !== "") {
+          if (checkAnonymous(node.textContent)) {
+            let fragment = new DocumentFragment();
 
-          let tokens = tokenize(node.textContent);
-          for (let token of tokens) {
-            fragment.appendChild(createNode(token));
+            let tokens = tokenize(node.textContent);
+            for (let token of tokens) {
+              fragment.appendChild(createNode(token));
+            }
+
+            node.replaceWith(fragment);
           }
-
-          node.replaceWith(fragment);
         }
       }
     }
