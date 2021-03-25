@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
 // @namespace    http://tampermonkey.net/
-// @version      0.3.1
+// @version      0.3.2
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @author       murphyne
 // @match        https://answers.unity.com/*
@@ -65,6 +65,18 @@
 
   var nodes = traverseNodeTree(document.body).flat(Infinity);
   processNodes(nodes);
+
+  const documentObserver = new MutationObserver(function documentCallback (mutations) {
+    for (let i = 0; i < mutations.length; i++) {
+      const mutation = mutations[i];
+      for (let j = 0; j < mutation.addedNodes.length; j++) {
+        const root = mutation.addedNodes[j];
+        var nodes = traverseNodeTree(root).flat(Infinity);
+        processNodes(nodes);
+      }
+    }
+  });
+  documentObserver.observe(document, {subtree: true, childList: true});
 
   function processNodes (nodes) {
     for (let node of nodes) {
