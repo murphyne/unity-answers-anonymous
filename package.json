@@ -10,6 +10,9 @@
     "greasemonkey",
     "tampermonkey"
   ],
+  "devDependencies": {
+    "rollup": "^2.45.2"
+  },
   "homepage": "https://github.com/murphyne/unity-answers-anonymous#readme",
   "repository": {
     "type": "git",
