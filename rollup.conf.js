@@ -1,10 +1,10 @@
 let bannerText = `
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
-// @namespace    http://tampermonkey.net/
 // @version      0.3.2
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @author       murphyne
+// @namespace    https://github.com/murphyne
 // @match        https://answers.unity.com/*
 // @grant        GM_addStyle
 // ==/UserScript==
