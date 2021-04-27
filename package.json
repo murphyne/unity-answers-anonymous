@@ -13,6 +13,9 @@
   "devDependencies": {
     "rollup": "^2.45.2"
   },
+  "scripts": {
+    "build": "rollup -c rollup.conf.js"
+  },
   "homepage": "https://github.com/murphyne/unity-answers-anonymous#readme",
   "repository": {
     "type": "git",

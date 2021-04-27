@@ -8,7 +8,7 @@
 // @grant        GM_addStyle
 // ==/UserScript==
 
-;(function eliminateAnonymous () {
+(function eliminateAnonymous () {
   'use strict';
 
   GM_addStyle(`
