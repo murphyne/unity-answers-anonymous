@@ -1,0 +1,21 @@
+{
+  "name": "unity-answers-anonymous",
+  "version": "0.3.2",
+  "description": "Userscript to replace $$anonymous$$ tokens on Unity Answers.",
+  "license": "ISC",
+  "author": "murphyne",
+  "browser": "no-anonymous.user.js",
+  "keywords": [
+    "userscript",
+    "greasemonkey",
+    "tampermonkey"
+  ],
+  "homepage": "https://github.com/murphyne/unity-answers-anonymous#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murphyne/unity-answers-anonymous.git"
+  },
+  "bugs": {
+    "url": "https://github.com/murphyne/unity-answers-anonymous/issues"
+  }
+}
