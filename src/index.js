@@ -1,4 +1,4 @@
-(function eliminateAnonymous () {
+export function eliminateAnonymous () {
   'use strict';
 
   GM_addStyle(`
@@ -145,4 +145,4 @@
     }
   }
 
-})();
+}

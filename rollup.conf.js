@@ -11,7 +11,7 @@ let bannerText = `
 `;
 
 export default {
-  input: 'src/no-anonymous.user.js',
+  input: 'src/main.js',
   output: {
     file: 'dist/no-anonymous.user.js',
     format: 'esm',

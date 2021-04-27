@@ -4,7 +4,7 @@
   "description": "Userscript to replace $$anonymous$$ tokens on Unity Answers.",
   "license": "ISC",
   "author": "murphyne",
-  "browser": "src/no-anonymous.user.js",
+  "browser": "src/main.js",
   "keywords": [
     "userscript",
     "greasemonkey",
