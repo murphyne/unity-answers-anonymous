@@ -2,7 +2,7 @@
   "name": "unity-answers-anonymous",
   "version": "0.3.2",
   "description": "Userscript to replace $$anonymous$$ tokens on Unity Answers.",
-  "license": "ISC",
+  "license": "MIT",
   "author": "murphyne",
   "browser": "src/main.js",
   "keywords": [

@@ -3,6 +3,7 @@ let bannerText = `
 // @name         Eliminate $$anonymous$$
 // @version      0.3.2
 // @description  Replace $$anonymous$$ on Unity Answers!
+// @license      MIT
 // @author       murphyne
 // @namespace    https://github.com/murphyne
 // @match        https://answers.unity.com/*
