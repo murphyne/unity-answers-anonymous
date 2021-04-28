@@ -9,6 +9,8 @@ let bannerText = `
 // @author       murphyne
 // @namespace    https://github.com/murphyne
 // @match        https://answers.unity.com/*
+// @updateUrl    https://github.com/murphyne/unity-answers-anonymous/releases/latest/download/no-anonymous.meta.js
+// @downloadUrl  https://github.com/murphyne/unity-answers-anonymous/releases/latest/download/no-anonymous.user.js
 // @grant        GM_addStyle
 // ==/UserScript==
 `;
