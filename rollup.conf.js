@@ -1,3 +1,5 @@
+import virtual from '@rollup/plugin-virtual';
+
 let bannerText = `
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
@@ -11,11 +13,23 @@ let bannerText = `
 // ==/UserScript==
 `;
 
-export default {
-  input: 'src/main.js',
-  output: {
-    file: 'dist/no-anonymous.user.js',
-    format: 'esm',
-    banner: bannerText.trimStart(),
+export default [
+  {
+    input: 'src/main.js',
+    output: {
+      file: 'dist/no-anonymous.user.js',
+      format: 'esm',
+      banner: bannerText.trimStart(),
+    },
   },
-};
+  {
+    input: 'entry',
+    plugins: [
+      virtual({ entry: '' }),
+    ],
+    output: {
+      file: 'dist/no-anonymous.meta.js',
+      banner: bannerText.trim(),
+    },
+  },
+];
