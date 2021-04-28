@@ -11,6 +11,7 @@
     "tampermonkey"
   ],
   "devDependencies": {
+    "@rollup/plugin-virtual": "^2.0.3",
     "rollup": "^2.45.2"
   },
   "scripts": {
