@@ -3,7 +3,7 @@ import virtual from '@rollup/plugin-virtual';
 let bannerText = `
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
-// @version      0.3.2
+// @version      0.4.0
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @license      MIT
 // @author       murphyne
