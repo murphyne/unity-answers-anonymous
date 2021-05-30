@@ -1,7 +1,7 @@
 export function eliminateAnonymous () {
   'use strict';
 
-  GM_addStyle(`
+  const cssStyle = `
     span.anonymous {
       -moz-text-decoration-line: underline;
       -moz-text-decoration-style: dotted;
@@ -15,7 +15,38 @@ export function eliminateAnonymous () {
       text-decoration-thickness: 1px;
       text-decoration-skip-ink: none;
     }
-  `);
+  `;
+
+  function Config(key, defaultValue) {
+    this.key = key;
+    this.defaultValue = defaultValue;
+
+    Object.defineProperty(this, "value", {
+      get() {
+        return GM_getValue(this.key, defaultValue);
+      },
+      set(value) {
+        GM_setValue(this.key, value);
+      },
+    });
+  }
+
+  let isHighlightEnabled = new Config("isHighlightEnabled", true);
+
+  let style = {
+    styleElement: null,
+    set enabled(value) {
+      if (value) { this.styleElement = GM_addStyle(cssStyle); }
+      else { this.styleElement?.remove(); }
+    }
+  };
+
+  GM_registerMenuCommand('Toggle the highlight', function toggleHighlight () {
+    isHighlightEnabled.value = !isHighlightEnabled.value;
+    style.enabled = isHighlightEnabled.value;
+  });
+
+  style.enabled = isHighlightEnabled.value;
 
   var replacements = [
     [ /(\$\$anonymous\$\$onoBehaviour)/g, "MonoBehaviour" ],

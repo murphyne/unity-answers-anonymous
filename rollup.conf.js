@@ -3,7 +3,7 @@ import virtual from '@rollup/plugin-virtual';
 let bannerText = `
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
-// @version      0.4.0
+// @version      1.0.0
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @license      MIT
 // @author       murphyne
@@ -12,6 +12,9 @@ let bannerText = `
 // @updateUrl    https://github.com/murphyne/unity-answers-anonymous/releases/latest/download/no-anonymous.meta.js
 // @downloadUrl  https://github.com/murphyne/unity-answers-anonymous/releases/latest/download/no-anonymous.user.js
 // @grant        GM_addStyle
+// @grant        GM_registerMenuCommand
+// @grant        GM_getValue
+// @grant        GM_setValue
 // ==/UserScript==
 `;
 
