@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  dev:
+    image: node:14
+    command: bash
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules/
+    environment:
+      - NODE_ENV=development
