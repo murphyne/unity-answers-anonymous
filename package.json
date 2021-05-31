@@ -1,6 +1,6 @@
 {
   "name": "unity-answers-anonymous",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Userscript to replace $$anonymous$$ tokens on Unity Answers.",
   "license": "MIT",
   "author": "murphyne",
