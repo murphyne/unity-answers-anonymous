@@ -1,9 +1,10 @@
 import virtual from '@rollup/plugin-virtual';
+import pkg from './package.json';
 
 let bannerText = `
 // ==UserScript==
 // @name         Eliminate $$anonymous$$
-// @version      1.0.1
+// @version      ${pkg.version}
 // @description  Replace $$anonymous$$ on Unity Answers!
 // @license      MIT
 // @author       murphyne
