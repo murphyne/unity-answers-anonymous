@@ -52,3 +52,17 @@ jobs:
         asset_path: dist/no-anonymous.meta.js
         asset_name: no-anonymous.meta.js
         asset_content_type: application/javascript
+
+    - name: Upload userscript to artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        path: dist/no-anonymous.user.js
+        name: no-anonymous.user.js
+        retention-days: 5
+
+    - name: Upload metadata to artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        path: dist/no-anonymous.meta.js
+        name: no-anonymous.meta.js
+        retention-days: 5
