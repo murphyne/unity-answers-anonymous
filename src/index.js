@@ -1,6 +1,6 @@
 import {
-  Config,
-} from './Config.js';
+  ToggleMenuCommand,
+} from './ToggleMenuCommand.js';
 
 export function eliminateAnonymous () {
   'use strict';
@@ -21,19 +21,13 @@ export function eliminateAnonymous () {
     }
   `;
 
-  let isHighlightEnabled = new Config("isHighlightEnabled", true);
-
-  let style = {
-    styleElement: null,
-    set enabled(value) {
-      if (value) { this.styleElement = GM_addStyle(cssStyle); }
-      else { this.styleElement?.remove(); }
-    }
-  };
+  let isHighlightEnabled = new ToggleMenuCommand("isHighlightEnabled",
+    () => this.styleElement = GM_addStyle(cssStyle),
+    () => this.styleElement?.remove()
+  );
 
   GM_registerMenuCommand('Toggle the highlight', function toggleHighlight () {
-    isHighlightEnabled.value = !isHighlightEnabled.value;
-    style.enabled = isHighlightEnabled.value;
+    isHighlightEnabled.toggle();
   });
 
   style.enabled = isHighlightEnabled.value;
