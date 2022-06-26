@@ -1,5 +1,4 @@
-# No $$anonymous$$ on Unity Answers
-
+# No `$$anonymous$$` on Unity Answers
 
 Userscript to replace `$$anonymous$$` tokens on [Unity Answers](https://answers.unity.com/).
 
