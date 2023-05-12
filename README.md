@@ -1,5 +1,7 @@
 # No `$$anonymous$$` on Unity Answers
 
+> :warning: This repository was created as a workaround for a specific problem. The repo is now archived since the problem has been resolved.
+
 Userscript to replace `$$anonymous$$` tokens on [Unity Answers](https://answers.unity.com/).
 
 <p align="left">
